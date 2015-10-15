@@ -1,0 +1,36 @@
+subprojects {
+
+    ext {
+        springBootVersion = '1.5.10.RELEASE'
+        springCloudVersion = 'Edgware.SR1'
+        springBootAdminVersion = '1.5.7'
+    }
+
+    buildscript {
+        repositories {
+            mavenCentral()
+        }
+        dependencies {
+            classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        }
+    }
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    processResources {
+        from(sourceSets.main.resources.srcDirs) {
+            include '**/*.yml'
+            filter { String line -> line.replace "\${version}", version
+            }
+        }
+    }
+}

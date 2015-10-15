@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: supervisor
+
+  metrics:
+    servo:
+      enabled: false
+
+  boot:
+    admin.routes.endpoints: env,metrics,trace,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream
+
+info:
+  name: ${spring.application.name}
+
+server:
+  port: 8001
+
+management:
+  security:
+    enabled: false
+
+endpoints:
+  sensitive: false
+  shutdown:
+    enabled: true

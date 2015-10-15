@@ -1,0 +1,21 @@
+version = '0.0.1-SNAPSHOT'
+
+apply plugin: 'org.springframework.boot'
+
+dependencies {
+
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+    compile('org.springframework.boot:spring-boot-starter-data-mongodb')
+    compile('org.springframework.boot:spring-boot-starter-data-rest')
+
+    compile('de.flapdoodle.embed:de.flapdoodle.embed.mongo')
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
+    }
+}

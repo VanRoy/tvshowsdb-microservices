@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: gateway
+
+  metrics:
+    servo:
+      enabled: false
+
+info:
+  name: ${spring.application.name}
+  version: ${version}
+
+server:
+  port: 8002
+
+management:
+  security:
+    enabled: false
+
+endpoints:
+  sensitive: false
+  shutdown:
+    enabled: true
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+    leaseExpirationDurationInSeconds: 5
+    metadataMap:
+      instanceId: ${spring.application.name}:${server.port}
+  client:
+    registryFetchIntervalSeconds: 2
+    serviceUrl:
+      defaultZone: http://localhost:8001/eureka/
+
+hystrix:
+  command:
+    default:
+      circuitBreaker:
+        sleepWindowInMilliseconds: 2000
+      execution:
+        isolation:
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 5000

@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: actors
+
+  metrics:
+    servo:
+      enabled: false
+
+info:
+  name: ${spring.application.name}
+  version: ${version}
+
+server:
+  port: 8021
+
+management:
+  security:
+    enabled: false
+
+endpoints:
+  sensitive: false
+  shutdown:
+    enabled: true
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+    metadataMap:
+      instanceId: ${spring.application.name}:${server.port}
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://localhost:8001/eureka/
