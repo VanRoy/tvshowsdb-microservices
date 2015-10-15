@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: gateway
+
+info:
+  name: ${spring.application.name}
+  version: ${version}
+
+server:
+  port: 8002
+
+endpoints:
+  shutdown:
+    sensitive: false
+    enabled: true
+  health:
+    sensitive: false
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+    leaseExpirationDurationInSeconds: 5
+    metadataMap:
+      instanceId: ${spring.application.name}:${server.port}
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://localhost:8001/eureka/

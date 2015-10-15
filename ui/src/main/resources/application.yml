@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: ui
+
+  thymeleaf:
+    cache: false
+info:
+  name: ${spring.application.name}
+  version: ${version}
+
+server:
+  port: 8080
+
+endpoints:
+  shutdown:
+    sensitive: false
+    enabled: true
+  health:
+    sensitive: false

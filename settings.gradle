@@ -1,0 +1,1 @@
+include ":supervisor", ":shows", ":actors", ":reviews", ":gateway", ":ui"

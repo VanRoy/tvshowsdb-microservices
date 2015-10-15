@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html ng-app="tvShowDbApp" lang="en-US" class=" js flexbox flexboxlegacy canvas canvastext draganddrop rgba multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients csstransitions generatedcontent video audio localstorage csstransforms csstransforms3d" style="">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>TV Show DB</title>
+
+	<link rel="stylesheet" type="text/css" media="all" href="/css/bootstrap.css"/>
+	<link rel="stylesheet" type="text/css" media="all" href="/css/responsive.css"/>
+	<link rel="stylesheet" type="text/css" media="all" href="/css/style.css"/>
+
+</head>
+<body>
+	<div class="light">
+		<div class="main-holder">
+			<header class="header">
+				<div class="container">
+					<div class="row">
+						<div class="span12">
+							<div>
+								<div class="logo">
+									<a href="/#/" class="logo_h logo_h__img"><img src="/css/images/logo.png" alt="TV Shows" title="TV SHow DB"/></a>
+								</div>
+                            </div>
+							<div>
+								<nav class="nav nav__primary clearfix">
+									<ul id="topnav" class="sf-menu sf-js-enabled">
+                                        <li id="menu-item-1807" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-203 current_page_item"><a ng-href="/#/">Home</a></li>
+										<li id="menu-item-1810" class="menu-item menu-item-type-post_type menu-item-object-page"><a ng-href="/#/about/">About</a></li>
+									    <li id="menu-item-1804" class="menu-item menu-item-type-post_type menu-item-object-page"><a ng-href="/#/contacts/">Contacts</a></li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+			<div class="content-holder clearfix">
+				<div class="container">
+					<div class="row">
+						<div class="span12" ng-view="">
+						</div>
+					</div>
+				</div>
+			</div>
+			<footer class="footer">
+				<div class="container">
+					<div class="row">
+						<div class="span12">
+							<div class="row">
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="/js/angular.min.js"></script>
+	<script type="text/javascript" src="/js/angular-resource.min.js"></script>
+	<script type="text/javascript" src="/js/angular-route.min.js"></script>
+	<script type="text/javascript" src="/js/app.js"></script>
+
+
+	<script type="text/ng-template" id="show-list.html">
+		<div>
+			<ul class="posts-grid row-fluid unstyled row-1 latest_projects">
+				<li class="span3" ng-repeat="show in shows">
+					<figure class="featured-thumbnail thumbnail">
+						<a href="#/show/{{show.id}}" title="{{show.name}}">
+							<img ng-src="/images/{{show.id}}-270x400.jpg" alt="{{show.name}}"/>
+						</a>
+					</figure>
+					<div class="clear"></div>
+					<div class="desc">
+						<h5><a href="#/show/{{show.id}}" title="{{show.name}}">{{show.name}}</a></h5>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</script>
+
+	<script type="text/ng-template" id="show.html">
+		<div class="clearfix">
+			<div class="container">
+				<div class="row">
+					<div class="span12">
+						<div class="row">
+							<div class="span12">
+								<section class="title-section">
+									<h1 class="title-header">{{show.name}}</h1>
+								</section>
+							</div>
+						</div>
+						<div id="content" class="row">
+							<div class="span12">
+								<div class="portfolio type-portfolio">
+									<div class="row">
+										<div class="span7">
+											<figure class="featured-thumbnail thumbnail large">
+												<img src="/images/{{show.id}}-700x460.jpg" alt="Image Format"/>
+											</figure>
+											<div class="clear"></div>
+										</div>
+										<div class="entry-content span5">
+											<div class="entry-meta">
+												<ul class="portfolio-meta-list">
+													<li>
+														<strong class="portfolio-meta-key">Seasons:</strong><span>{{show.seasons}}</span><br/>
+													</li>
+													<li>
+														<strong class="portfolio-meta-key">Actors:</strong>
+														<ul>
+															<li ng-repeat="actor in show.actors | orderBy:'name'">
+																<span>{{actor.name}}</span><span> ( {{actor.birthdate | date:'mediumDate'}} )</span>&nbsp;<img style="cursor: pointer;" src="/css/images/info.png" title="{{actor.bio}}"/><br/>
+															</li>
+														</ul>
+													</li>
+												</ul>
+											</div>
+											<p>{{show.description}}</p>
+
+										</div>
+                                    </div>
+								</div>
+							</div>
+						</div>
+
+                        <div class="row">
+                            <div class="span8 right">
+                                <div class="comment-holder">
+                                    <h3 class="comments-h">{{reviews.length}} reviews</h3>
+                                    <ol class="comment-list clearfix">
+                                        <li class="comment byuser comment-author-admin bypostauthor even thread-odd thread-alt depth-1" ng-repeat="review in reviews | orderBy:'rating'">
+                                            <div class="comment-body clearfix">
+                                                <div class="wrapper">
+                                                    <div class="rating">{{review.rating}}</div>
+                                                    <div class="comment-author vcard">
+                                                        <img alt="" src="/css/images/avatar.png" class="avatar avatar-80 photo" height="80" width="80"/>
+                                                        <span class="author">{{review.userName}}</span>
+                                                    </div>
+                                                    <div class="extra-wrap">
+                                                        <p>{{review.review}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+				</div>
+			</div>
+		</div>
+	</script>
+</body>
+</html>

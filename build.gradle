@@ -1,0 +1,37 @@
+subprojects {
+
+    ext {
+        springBootVersion = '1.2.7.RELEASE'
+        springCloudVersion = 'Angel.SR3'
+        springCloudDashboardVersion = '1.0.0.RELEASE'
+    }
+
+    buildscript {
+        repositories {
+            mavenCentral()
+        }
+        dependencies {
+            classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+            classpath('io.spring.gradle:dependency-management-plugin:0.5.2.RELEASE')
+        }
+    }
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    processResources {
+        from(sourceSets.main.resources.srcDirs) {
+            include '**/*.yml'
+            filter { String line -> line.replace "\${version}", version
+            }
+        }
+    }
+}
