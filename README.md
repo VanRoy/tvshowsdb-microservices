@@ -21,6 +21,7 @@ Cette application met en oeuvre les elements suivants :
 | init     | Base de travail vide                    |
 | eureka   | Service discovery avec Eureka           |
 | feign    | IPC avec Feign + Ribbon                 |
+| hystrix  | Circuit breaker avec Hystrix            |
 
 ### Prérequis
 
