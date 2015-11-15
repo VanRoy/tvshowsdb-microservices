@@ -25,3 +25,14 @@ endpoints:
   sensitive: false
   shutdown:
     enabled: true
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+    metadataMap:
+      instanceId: ${spring.application.name}:${server.port}
+  client:
+    registryFetchIntervalSeconds: 2
+    serviceUrl:
+      defaultZone: http://localhost:8001/eureka/

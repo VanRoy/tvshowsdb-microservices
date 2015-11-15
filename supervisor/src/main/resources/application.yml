@@ -23,3 +23,16 @@ endpoints:
   sensitive: false
   shutdown:
     enabled: true
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registryFetchIntervalSeconds: 2
+    serviceUrl:
+      defaultZone: http://localhost:8001/eureka/
+  server:
+    enableSelfPreservation: false
+    waitTimeInMsWhenSyncEmpty: 2000
+  dashboard:
+    enabled: false
