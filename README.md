@@ -23,6 +23,7 @@ Cette application met en oeuvre les elements suivants :
 | feign    | IPC avec Feign + Ribbon                 |
 | hystrix  | Circuit breaker avec Hystrix            |
 | stream   | Data streaming avec Spring Cloud Stream |
+| zuul     | API Gateway avec Zuul                   |
 
 ### Prérequis
 

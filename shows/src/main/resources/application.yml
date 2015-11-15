@@ -41,6 +41,11 @@ hystrix:
     default:
       circuitBreaker:
         sleepWindowInMilliseconds: 2000
+      execution:
+        isolation:
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 500
 
 eureka:
   instance:

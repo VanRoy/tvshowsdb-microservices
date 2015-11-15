@@ -4,7 +4,9 @@ apply plugin: 'org.springframework.boot'
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
+
     compile('org.springframework.cloud:spring-cloud-starter-eureka')
+    compile('org.springframework.cloud:spring-cloud-starter-zuul')
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
