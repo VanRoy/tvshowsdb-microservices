@@ -26,6 +26,10 @@ endpoints:
   shutdown:
     enabled: true
 
+feign:
+  hystrix:
+    enabled: false
+
 eureka:
   instance:
     leaseRenewalIntervalInSeconds: 1

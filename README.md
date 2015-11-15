@@ -20,6 +20,7 @@ Cette application met en oeuvre les elements suivants :
 | master   | Toutes les fonctionnalités              |
 | init     | Base de travail vide                    |
 | eureka   | Service discovery avec Eureka           |
+| feign    | IPC avec Feign + Ribbon                 |
 
 ### Prérequis
 
