@@ -10,6 +10,12 @@ spring:
     mongodb:
       port: 27017
 
+  cloud:
+    stream:
+      bindings:
+        actorChanges:
+          group: shows
+
 info:
   name: ${spring.application.name}
   version: ${version}

@@ -22,6 +22,7 @@ Cette application met en oeuvre les elements suivants :
 | eureka   | Service discovery avec Eureka           |
 | feign    | IPC avec Feign + Ribbon                 |
 | hystrix  | Circuit breaker avec Hystrix            |
+| stream   | Data streaming avec Spring Cloud Stream |
 
 ### Prérequis
 
