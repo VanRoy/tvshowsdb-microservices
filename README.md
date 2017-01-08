@@ -13,18 +13,6 @@ Cette application met en oeuvre les elements suivants :
 
 ## Instructions
 
-### Branches
-
-| Branche  | Fonctionnalité                          |
-| -------- | --------                                |
-| master   | Toutes les fonctionnalités              |
-| init     | Base de travail vide                    |
-| eureka   | Service discovery avec Eureka           |
-| feign    | IPC avec Feign + Ribbon                 |
-| hystrix  | Circuit breaker avec Hystrix            |
-| stream   | Data streaming avec Spring Cloud Stream |
-| zuul     | API Gateway avec Zuul                   |
-
 ### Prérequis
 
 Cette démo requiert un JDK 8 et Docker.
